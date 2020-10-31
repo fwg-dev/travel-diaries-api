@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user, status 200
+    render json: @user
   end
 
   # POST /users
