@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+ 
   #I want my api to be namespaced traveler.com/api/v1/resources
   namespace :api do 
     namespace :v1 do
+      resources :locations
       resources :users
     end
   end
