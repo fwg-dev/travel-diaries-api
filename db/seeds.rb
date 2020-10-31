@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(name: "Faith", username: "faithw", password: "pw")
+
+# Location.create(country: "Kenya", city: "Nairobi", region: "Africa", currency: "ksh", languages: "swahili", image_url: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2104&q=80")
