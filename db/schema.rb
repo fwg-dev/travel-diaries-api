@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_080406) do
+ActiveRecord::Schema.define(version: 2020_11_01_020542) do
 
   create_table "attractions", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "location_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "location_id", null: false
+    t.index ["location_id"], name: "index_attractions_on_location_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -32,11 +33,13 @@ ActiveRecord::Schema.define(version: 2020_10_31_080406) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.string "date_of_trip"
-    t.integer "location_id"
-    t.integer "user_id"
+    t.date "date_of_trip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "location_id", null: false
+    t.integer "user_id", null: false
+    t.index ["location_id"], name: "index_trips_on_location_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,4 +50,7 @@ ActiveRecord::Schema.define(version: 2020_10_31_080406) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "attractions", "locations"
+  add_foreign_key "trips", "locations"
+  add_foreign_key "trips", "users"
 end
